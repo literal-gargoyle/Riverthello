@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-roboto antialiased bg-[#F5F5F5] text-[#212121];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins;
+  }
+}
+
+@layer components {
+  .game-cell {
+    @apply transition-all duration-200 cursor-pointer;
+  }
+
+  .game-piece {
+    @apply transition-transform duration-300 ease-out;
+  }
+
+  .game-cell:hover:not(.occupied) {
+    @apply bg-[#4CAF50] bg-opacity-10;
+  }
+
+  .game-cell.valid-move:not(.occupied):hover {
+    @apply bg-[#4CAF50] bg-opacity-30 transform scale-[0.97];
+  }
+
+  .current-turn {
+    animation: pulse 2s infinite;
+  }
+
+  .chat-container {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
